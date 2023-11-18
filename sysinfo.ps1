@@ -55,9 +55,9 @@ Switch ($computerInfo.ThermalState) {
 
 $sysinfoObject = New-Object -TypeName psobject 
 
-$sysinfoObject | Add-Member -MemberType NoteProperty -Name ComputerName        -Value $computerInfo.Name
 $sysinfoObject | Add-Member -MemberType NoteProperty -Name OS                  -Value $osInfo.Caption
 $sysinfoObject | Add-Member -MemberType NoteProperty -Name 'OSVersion'        -Value $("$($osInfo.Version) Build $($osInfo.BuildNumber)")
+$sysinfoObject | Add-Member -MemberType NoteProperty -Name ComputerName        -Value $computerInfo.Name
 if ($domainJoined -eq 1) {
     $sysinfoObject | Add-Member -MemberType NoteProperty -Name Domain          -Value $computerInfo.Domain
     #$sysinfoObject | Add-Member -MemberType NoteProperty -Name Workgroup       -Value $null
